@@ -223,7 +223,7 @@ end
 
 @device_override KI.get_num_sub_groups() = UInt32(prod(blockDim()) ÷ warpsize())
 
-@device_override KI.get_sub_group_id() = UInt32((threadIdx().x + blockDim().x * (threadIdx().y - 1) + blockDim().x * blockDim().y * (threadIdx().z - 1)) ÷ warpsize())
+@device_override KI.get_sub_group_id() = UInt32((threadIdx().x + blockDim().x * (threadIdx().y - 1) + blockDim().x * blockDim().y * (threadIdx().z - 1)) ÷ warpsize()) + 0x1
 
 @device_override KI.get_sub_group_local_id() = UInt32(laneid())
 
