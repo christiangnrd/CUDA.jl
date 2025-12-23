@@ -184,7 +184,7 @@ function KI.max_work_group_size(::CUDABackend)::Int
     Int(attribute(device(), CUDA.DEVICE_ATTRIBUTE_MAX_THREADS_PER_BLOCK))
 end
 function KI.sub_group_size(::CUDABackend)::Int
-    wavefrontsize(device())
+    warpsize(device())
 end
 function KI.multiprocessor_count(::CUDABackend)::Int
     Int(attribute(device(), CUDA.DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT))
