@@ -263,7 +263,7 @@ end
     sync_warp()
 end
 
-@device_override function KI.shfl_down(val::T, offset::Integer)::T where T
+@device_override function KI.shfl_down(val::T, offset::Integer) where T
     shfl_down_sync(0xffffffff, val, offset)
 end
 
